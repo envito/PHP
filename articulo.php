@@ -17,37 +17,36 @@ $query=mysql_query($sql,$con);
 		</script>
 	</head>
 	<body>
-		<center>
-			<div id="main">
-				<div id="cabecera">
-					<h3>Art&iacute;culos de la web</h3>
-				</div>
-				<div id="contenedor">
-				
-					<div class="contenidos" style="background-color:#666666; color:#FFFFFF; font-weight:bold">
-				        <div id="columna1">Titulo</div>
-				        <div id="columna2">Detalle</div>
-				        <div id="columna3">Fecha</div>
-				        <div id="columna4">Hora</div>
-				    </div>
-				    <?php 
-				    $i=0;
-						while($register=mysql_fetch_array($query))
-						{	
-					$i=$i++;
-					?>
-				    <div class="contenidos" id="<?php echo "id_$i"; ?>" style="background-color:#f0f0f0" onmousemove="cambiar('<?php echo "id_$i";?>','#cccccc')" onmouseout="cambiar('<?php echo "id_$i";?>','#f0f0f0')">
-				        <div id="columna1"><?php echo $register["titulo"]; ?></div>
-				        <div id="columna2"><?php echo $register["detalle"]; ?></div>
-				        <div id="columna3"><?php echo $register["fecha"]; ?></div>
-				        <div id="columna4"><?php echo $register["hora"]; ?></div>
-				    </div>
+		<table align="center" width="800">
+			<tr>
+				<td align="center" width="800" valign="top" colspan="4">
+				<h3>Art&iacute;culos de mi Sitio Web</h3>
+				</td>
+			</tr>
+			<tr style=" background-color:#666666; color:#FFFFFF; font-weight:bold">
 
-				<?php
-					}
-				?>
-				</div>
-			</div>
+				<td width="200" align="center" valign="top">T&iacute;tulo</td>
+				<td width="500" align="center" valign="top">Detalle</td>
+				<td width="50" align="center" valign="top">Fecha</td>
+				<td width="50" align="center" valign="top">Hora</td>
+			</tr>
+			<?php
+			$i=0;
+			while ($reg=mysql_fetch_array($res))
+			{
+			$i++;
+			//$i=$i+1;
+			?>
+			<tr id="<?php echo "id_$i";?>" style="background-color:#f0f0f0" onmousemove="cambiar('<?php echo "id_$i";?>','#cccccc')" onmouseout="cambiar('<?php echo "id_$i";?>','#f0f0f0')">
+				<td width="200" align="center" valign="top"><div align="justify"><?php echo $reg["titulo"];?></div></td>
+				<td width="500" align="center" valign="top"><div align="justify"><?php echo $reg["detalle"];?></div></td>
+				<td width="50" align="center" valign="top"><?php echo $reg["fecha"];?></td>
+				<td width="50" align="center" valign="top"><?php echo $reg["hora"];?></td>
+			</tr>
+			<?php
+			}
+			?>
+		</table>
 		</center>
 	</body>
 </html>
