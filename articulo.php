@@ -17,6 +17,7 @@ $query=mysql_query($sql,$con);
 		</script>
 	</head>
 	<body>
+		<h1>Inserción de una linea</h1>
 		<table align="center" width="800">
 			<tr>
 				<td align="center" width="800" valign="top" colspan="4">
